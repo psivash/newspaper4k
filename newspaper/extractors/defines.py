@@ -83,6 +83,7 @@ ARTICLE_BODY_TAGS = [
     {"itemtype": "https://schema.org/ScholarlyArticle"},
     {"itemtype": "https://schema.org/SocialMediaPosting"},
     {"itemtype": "https://schema.org/TechArticle"},
+    {"class": "article__body"},
 ]
 META_IMAGE_TAGS = [
     {"tag": "meta", "field": 'meta[property="og:image"]', "score": 10},

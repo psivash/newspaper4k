@@ -94,7 +94,7 @@ class TitleExtractor:
             used_delimeter = True
 
         if not used_delimeter:
-            for delimiter in ["|", "-", "_", "/", " » "]:
+            for delimiter in ["|", " - ", "_", "/", " » "]:
                 if delimiter in title_text:
                     title_text = self._split_title(
                         title_text, StringSplitter(delimiter), title_text_h1

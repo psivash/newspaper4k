@@ -13,7 +13,6 @@ from newspaper.urls import urljoin_if_valid
 
 log = logging.getLogger(__name__)
 
-
 class ImageExtractor:
     """Extractor class for images in articles. Getting top image,
     image list, favicon, etc."""
@@ -115,6 +114,9 @@ class ImageExtractor:
             ):
                 return self.meta_image
 
+        if not self.config.fetch_images:
+            return ""
+
         img_cand = []
         for img in self.parser.getElementsByTag(doc, tag="img"):
             if not img.get("src"):
@@ -130,7 +132,6 @@ class ImageExtractor:
                     return img.get("src")
 
         img_cand.sort(key=lambda x: x[1])
-
         for img in img_cand:
             if self._check_image_size(img[0].get("src"), article_url):
                 return img[0].get("src")

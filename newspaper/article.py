@@ -480,11 +480,14 @@ class Article:
         # Before any computations on the body, clean DOM object
         self.clean_doc = document_cleaner.clean(self.clean_doc)
 
-        # Top node in the original documentDOM
-        self.top_node = self.extractor.calculate_best_node(self.doc)
+        # # Top node in the original documentDOM
+        # self.top_node = self.extractor.calculate_best_node(self.doc)
 
         # Top node in the cleaned version of the DOM
         self.clean_top_node = self.extractor.calculate_best_node(self.clean_doc)
+
+        # Top node in the original documentDOM
+        self.top_node = self.extractor.calculate_best_node(self.doc)
 
         self.set_movies(self.extractor.get_videos(self.doc, self.top_node))
 
