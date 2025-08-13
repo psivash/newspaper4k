@@ -17,7 +17,8 @@ from copy import deepcopy
 from typing import List, Dict
 import lxml.etree
 import lxml.html
-import lxml.html.clean
+#import lxml.html.clean
+import lxml_html_clean
 from html import unescape
 
 from bs4 import UnicodeDammit
@@ -78,7 +79,7 @@ class Parser:
 
     @classmethod
     def clean_article_html(cls, node):
-        article_cleaner = lxml.html.clean.Cleaner()
+        article_cleaner = lxml_html_clean.Cleaner()
         article_cleaner.javascript = True
         article_cleaner.style = True
         article_cleaner.allow_tags = [
